@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  overflow: hidden;
+  z-index: 100;
+  border-bottom: 2px solid hsla(0, 0%, 52.2%, 0.2);
+  padding: 20px 30px;
+  background-color: $color-creamy;
+  user-select: none;
+
+  &--fixed {
+    position: fixed;
+  }
+  &__logo {
+    &__image {
+      width: 200px;
+      cursor: pointer;
+
+      @media (max-width: 700px) {
+        width: 170px;
+      }
+    }
+  }
+  &__right-side {
+    &__menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      &__item {
+        font-size: 20px;
+        color: $color-black;
+        opacity: 0.8;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &--selected {
+          color: $color-secondary;
+
+          opacity: 1;
+        }
+      }
+    }
+    &__icon {
+      font-size: 34px;
+      cursor: pointer;
+    }
+  }
+}

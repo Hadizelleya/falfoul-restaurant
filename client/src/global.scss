@@ -1,0 +1,30 @@
+$color-primary: #8dad40;
+$color-secondary: #b46c31;
+$color-creamy: #fdfeff;
+$color-greenLight: #daf7a6;
+$color-white: #fff;
+$color-black: #000;
+$padding-primary: 25px;
+$padding-secondary: 50px;
+$border-radius-primary: 15px;
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "./components/navbar/Navbar.scss";
+@import "./components/navbar/mobilemenu/MobileMenu.scss";
+@import "./styles/Home.scss";
+@import "./components/footer/Footer.scss";
+@import "./styles/About.scss";
+@import "./styles/Contact.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: Poppins, sans-serif;
+}

@@ -1,10 +1,9 @@
 const homePath = "/";
-const sandwichesPath = "/sandwiches";
+const menuPath = "/menu";
 const aboutUsPath = "/about";
 const contactUsPath = "/contact";
 export const isHomeSelected = (currentPath) => currentPath === homePath;
-export const isSandwichesSelected = (currentPath) =>
-  currentPath === sandwichesPath;
+export const isMenuSelected = (currentPath) => currentPath === menuPath;
 export const isAboutUsSelected = (currentPath) => currentPath === aboutUsPath;
 export const isContactUsSelected = (currentPath) =>
   currentPath === contactUsPath;

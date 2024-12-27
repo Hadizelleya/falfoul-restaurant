@@ -4,6 +4,7 @@ $color-creamy: #fdfeff;
 $color-greenLight: #daf7a6;
 $color-white: #fff;
 $color-black: #000;
+$color-gray: #808080;
 $padding-primary: 25px;
 $padding-secondary: 50px;
 $border-radius-primary: 15px;
@@ -16,6 +17,8 @@ $border-radius-primary: 15px;
 @import "./components/footer/Footer.scss";
 @import "./styles/About.scss";
 @import "./styles/Contact.scss";
+@import "./components/categories/Categories.scss";
+@import "./styles/Menu.scss";
 
 * {
   margin: 0;

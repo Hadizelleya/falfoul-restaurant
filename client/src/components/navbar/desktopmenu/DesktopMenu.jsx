@@ -4,7 +4,7 @@ import {
   isAboutUsSelected,
   isContactUsSelected,
   isHomeSelected,
-  isSandwichesSelected,
+  isMenuSelected,
 } from "../../../utils/checkRoutes";
 
 export default function DesktopMenu() {
@@ -22,10 +22,10 @@ export default function DesktopMenu() {
       </Link>
       <Link
         className={`navbar__right-side__menu__item ${
-          isSandwichesSelected(loc.pathname) &&
+          isMenuSelected(loc.pathname) &&
           "navbar__right-side__menu__item--selected"
         }`}
-        to="/sandwiches"
+        to="/menu"
       >
         Menu
       </Link>

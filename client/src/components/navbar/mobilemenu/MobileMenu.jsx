@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   isAboutUsSelected,
   isHomeSelected,
-  isSandwichesSelected,
+  isMenuSelected,
   isContactUsSelected,
 } from "../../../utils/checkRoutes";
 export default function MobileMenu({ toggleMenu }) {
@@ -23,10 +23,10 @@ export default function MobileMenu({ toggleMenu }) {
 
         <Link
           className={`mobile-menu__content__item ${
-            isSandwichesSelected(loc.pathname) &&
+            isMenuSelected(loc.pathname) &&
             "mobile-menu__content__item--selected"
           }`}
-          to="/sandwiches"
+          to="/menu"
           onClick={toggleMenu}
         >
           Menu

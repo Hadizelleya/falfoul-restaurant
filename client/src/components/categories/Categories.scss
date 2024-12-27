@@ -1,0 +1,107 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid $color-secondary;
+  border-radius: $border-radius-primary;
+  padding: 40px;
+
+  @media (max-width: 700px) {
+    padding: 20px;
+  }
+
+  &__title {
+    font-size: 60px;
+    color: $color-primary;
+    border-bottom: 2px solid $color-secondary;
+    text-align: center;
+    width: 100%;
+    @media (max-width: 700px) {
+      font-size: 40px;
+    }
+  }
+  &__sandwiches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0px;
+
+    &__sandwich {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid rgba($color-white, $alpha: 0.3);
+      padding: 40px 20px;
+
+      gap: 20px;
+      @media (max-width: 700px) {
+        flex-direction: column;
+      }
+
+      &__image {
+        width: 200px;
+        aspect-ratio: 1/1;
+        border-radius: $border-radius-primary;
+        object-fit: cover;
+        @media (max-width: 700px) {
+          width: 90%;
+        }
+      }
+      &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        align-items: flex-start;
+        justify-content: center;
+
+        &__header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          gap: 40px;
+          &__title {
+            font-size: 30px;
+            color: $color-white;
+            @media (max-width: 700px) {
+              font-size: 20px;
+            }
+            @media (max-width: 400px) {
+              font-size: 15px;
+            }
+          }
+
+          &__price {
+            font-size: 18px;
+            font-weight: bold;
+            color: $color-secondary;
+
+            @media (max-width: 700px) {
+              font-size: 15px;
+            }
+            @media (max-width: 400px) {
+              font-size: 10px;
+            }
+          }
+        }
+
+        &__description {
+          color: $color-gray;
+          font-style: italic;
+          text-wrap: wrap;
+          user-select: none;
+          @media (max-width: 700px) {
+            font-size: 16px;
+          }
+          @media (max-width: 400px) {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}

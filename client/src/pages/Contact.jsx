@@ -82,7 +82,7 @@ export default function Contact() {
           </div>
           <div className="contact-container__body__info__box">
             <h4 className="contact-container__body__info__box__title">
-              Adresse:
+              Email:
             </h4>
             <Link
               target="_blank"

@@ -20,10 +20,7 @@ export default function Home() {
           une bouchée rapide ou un repas copieux !
         </p>
         <div className="home-container__content__buttons">
-          <Link
-            className="home-container__content__buttons__btn"
-            to={"/sandwiches"}
-          >
+          <Link className="home-container__content__buttons__btn" to={"/menu"}>
             Consultez notre menu{"  "}
             <FaArrowRight className="home-container__content__button__arrow" />
           </Link>

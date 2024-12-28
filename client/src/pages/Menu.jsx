@@ -21,7 +21,7 @@ export default function Menu() {
               to={"https://maps.app.goo.gl/sZH1fcVX3jiwmrWv5"}
               className="menu__restuarant__info__box__description menu__restuarant__info__box__description--link"
             >
-              123 Rue de la Paix, Paris, France
+              1558 Rue Fleury E Montréal
             </Link>
           </div>
           <div className="menu__restuarant__info__box">

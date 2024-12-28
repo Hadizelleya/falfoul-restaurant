@@ -69,7 +69,7 @@ export default function Contact() {
               to={"https://maps.app.goo.gl/sZH1fcVX3jiwmrWv5"}
               className="contact-container__body__info__box__description contact-container__body__info__box__description--link"
             >
-              123 Rue de la Paix, Paris, France
+              1558 Rue Fleury E Montréal
             </Link>
           </div>
           <div className="contact-container__body__info__box">

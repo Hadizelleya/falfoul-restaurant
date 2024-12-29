@@ -13,7 +13,9 @@ export default function AddProduct() {
   });
   const [imageId, setImageId] = useState(null); // State to store the image ID
 
-  const { data, loading, error } = useFetch(import.meta.env.VITE_APP_API_URL);
+  const { data, loading, error } = useFetch(
+    import.meta.env.VITE_APP_CATEGORIES_URL
+  );
   if (loading) return "loading...";
   if (error) return "error";
 
@@ -24,7 +26,7 @@ export default function AddProduct() {
 
     try {
       const response = await axios.post(
-        "http://localhost:1337/api/upload",
+        import.meta.env.VITE_APP_UPLOAD_URL,
         formData,
         {
           headers: {
@@ -54,7 +56,7 @@ export default function AddProduct() {
 
     try {
       const response = await axios.post(
-        "http://localhost:1337/api/sandwiches?populate=*",
+        import.meta.env.VITE_APP_SANDWICHES_URL,
         { data: productData },
         {
           headers: {
@@ -65,7 +67,7 @@ export default function AddProduct() {
       console.log("Product added:", response.data.data);
       setTimeout(() => {
         navigate("/menu", { replace: true });
-      }, 2000);
+      }, 1000);
     } catch (error) {
       console.error("Error adding product:", error);
     }

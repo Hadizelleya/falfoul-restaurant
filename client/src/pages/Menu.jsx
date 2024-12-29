@@ -5,7 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 export default function Menu() {
-  const { data, loading, error } = useFetch(import.meta.env.VITE_APP_API_URL);
+  const { data, loading, error } = useFetch(
+    import.meta.env.VITE_APP_CATEGORIES_URL
+  );
 
   return (
     <div className="menu">

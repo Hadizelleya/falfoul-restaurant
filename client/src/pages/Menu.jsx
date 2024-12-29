@@ -5,9 +5,7 @@ import { BallTriangle } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
 export default function Menu() {
-  const { data, loading, error } = useFetch(
-    "http://localhost:1337/api/categories?populate[sandwiches][populate]=*"
-  );
+  const { data, loading, error } = useFetch(import.meta.env.VITE_APP_API_URL);
 
   return (
     <div className="menu">

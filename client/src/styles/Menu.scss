@@ -116,6 +116,25 @@
       }
     }
   }
+
+  &__add-sandwich {
+    font-size: 30px;
+    color: $color-white;
+    background-color: $color-primary;
+    transition: all 0.3s ease;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: $border-radius-primary;
+
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-white;
+    }
+  }
   &__categories {
     display: flex;
     flex-wrap: wrap;

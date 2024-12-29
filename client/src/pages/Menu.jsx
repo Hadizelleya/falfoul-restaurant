@@ -1,8 +1,8 @@
-import { useFetch } from "../hooks/useFetch";
 import Categories from "../components/categories/Categories";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { BallTriangle } from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 export default function Menu() {
   const { data, loading, error } = useFetch(import.meta.env.VITE_APP_API_URL);
@@ -58,6 +58,11 @@ export default function Menu() {
                 ))}
           </div>
         </div>
+      </div>
+      <div>
+        <Link className="menu__add-sandwich" to={"/addsandwich"}>
+          Add A Sandwich
+        </Link>
       </div>
       {loading ? (
         <BallTriangle

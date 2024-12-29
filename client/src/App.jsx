@@ -6,18 +6,23 @@ import Footer from "./components/footer/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Menu from "./pages/Menu";
+import AddProduct from "./pages/AddProduct";
+import { MainProvider } from "./utils/MainContext"; // Correct import path
+
 export default function App() {
   return (
     <>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
+      <MainProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/addsandwich" element={<AddProduct />} />
+        </Routes>
+        <Footer />
+      </MainProvider>
     </>
   );
 }

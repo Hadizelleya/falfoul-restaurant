@@ -47,6 +47,20 @@
           opacity: 1;
         }
       }
+      &__button {
+        padding: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        border-radius: $border-radius-primary;
+        border: none;
+        background-color: $color-primary;
+        color: $color-white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: $color-secondary;
+        }
+      }
     }
     &__icon {
       font-size: 34px;

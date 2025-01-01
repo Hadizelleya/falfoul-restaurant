@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Menu from "./pages/Menu";
 import AddProduct from "./pages/AddProduct";
 import { MainProvider } from "./utils/MainContext"; // Correct import path
+import SignIn from "./pages/SignIn";
 
 export default function App() {
   return (
@@ -19,7 +20,8 @@ export default function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/addsandwich" element={<AddProduct />} />
+          <Route path="/add-sandwich" element={<AddProduct />} />
+          <Route path="/sign-in" element={<SignIn />} />
         </Routes>
         <Footer />
       </MainProvider>

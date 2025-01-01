@@ -1,10 +1,13 @@
 import Categories from "../components/categories/Categories";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { BallTriangle } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { useContext } from "react";
+import MainContext from "../utils/MainContext";
 
 export default function Menu() {
+  const { user } = useContext(MainContext);
   const { data, loading, error } = useFetch(
     import.meta.env.VITE_APP_CATEGORIES_URL
   );
@@ -61,11 +64,13 @@ export default function Menu() {
           </div>
         </div>
       </div>
-      <div>
-        <Link className="menu__add-sandwich" to={"/addsandwich"}>
-          Add A Sandwich
-        </Link>
-      </div>
+      {user && (
+        <div>
+          <Link className="menu__add-sandwich" to={"/add-sandwich"}>
+            Add A Sandwich
+          </Link>
+        </div>
+      )}
       {loading ? (
         <BallTriangle
           height={100}

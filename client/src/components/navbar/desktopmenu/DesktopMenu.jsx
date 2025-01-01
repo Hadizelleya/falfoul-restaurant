@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   isAboutUsSelected,
   isContactUsSelected,
   isHomeSelected,
   isMenuSelected,
+  isSignInSelected,
 } from "../../../utils/checkRoutes";
+import MainContext from "../../../utils/MainContext";
 
 export default function DesktopMenu() {
+  const { user, handleLogout } = useContext(MainContext);
   const loc = useLocation();
   return (
     <div className="navbar__right-side__menu">
@@ -47,6 +50,24 @@ export default function DesktopMenu() {
       >
         Contactez Nous
       </Link>
+      {!user ? (
+        <Link
+          className={`navbar__right-side__menu__item ${
+            isSignInSelected(loc.pathname) &&
+            "navbar__right-side__menu__item--selected"
+          }`}
+          to="/sign-in"
+        >
+          Sign In
+        </Link>
+      ) : (
+        <button
+          className={`navbar__right-side__menu__button`}
+          onClick={handleLogout}
+        >
+          Log Out
+        </button>
+      )}
     </div>
   );
 }

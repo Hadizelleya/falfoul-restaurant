@@ -27,7 +27,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="navbar__right-side">
-          {width < 900 ? (
+          {width < 1000 ? (
             isMenuOpened ? (
               <IoCloseSharp
                 onClick={toggleMenu}

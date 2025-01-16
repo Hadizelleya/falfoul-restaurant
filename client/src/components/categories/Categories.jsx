@@ -9,6 +9,7 @@ export default function Categories({ title, sandwiches }) {
   const [sandwichList, setSandwichList] = useState(sandwiches);
   const [editingSandwich, setEditingSandwich] = useState(null);
   const [displayForm, setDisplayForm] = useState(false);
+  const [imageId, setImageId] = useState();
   const [editInputs, setEditInputs] = useState({
     name: "",
     price: "",
@@ -47,13 +48,36 @@ export default function Categories({ title, sandwiches }) {
     setEditInputs({ ...editInputs, [name]: value });
   };
 
+  const handleImageChange = async (event) => {
+    const image = event.target.files[0]; // Get the first file from the input
+    const formData = new FormData();
+    formData.append("files", image);
+
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_APP_UPLOAD_URL,
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer " + import.meta.env.VITE_APP_API_TOKEN,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      setImageId(response.data[0].id); // Store the image ID in the state
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
+  };
+
   const handleEditSubmit = async (event) => {
     event.preventDefault();
+    const updatedSandwich = { ...editInputs, image: imageId };
     try {
       const response = await axios.put(
         `${url}/api/sandwiches/${editingSandwich}?populate=*`,
         {
-          data: editInputs,
+          data: updatedSandwich,
         },
         {
           headers: {
@@ -157,6 +181,16 @@ export default function Categories({ title, sandwiches }) {
                         name="description"
                         value={editInputs.description}
                         onChange={handleEditChange}
+                      />
+                    </label>
+                    <label htmlFor="image" className="edit__form__label">
+                      Image:
+                      <input
+                        className="edit__form__input edit__form__input--image"
+                        type="file"
+                        name="image"
+                        value={editInputs.image}
+                        onChange={handleImageChange}
                       />
                     </label>
                     <div className="edit__form__buttons">

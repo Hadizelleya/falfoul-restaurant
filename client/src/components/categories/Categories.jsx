@@ -35,7 +35,9 @@ export default function Categories({ title, sandwiches }) {
     setEditInputs({
       name: sandwich.name,
       price: sandwich.price,
-      // description: sandwich.description, (we need to add description first)
+      description: sandwich.description
+        ? sandwich.description
+        : "please type a sandwich description",
     });
     setDisplayForm(!displayForm);
   };
@@ -59,7 +61,6 @@ export default function Categories({ title, sandwiches }) {
           },
         }
       );
-      console.log(response.data.data);
       if (response.status === 200) {
         setSandwichList(
           sandwichList.map((sandwich) =>
@@ -99,7 +100,7 @@ export default function Categories({ title, sandwiches }) {
                 </p>
               </div>
               <p className="category__sandwiches__sandwich__info__description">
-                Lorem ipsum dolor sit amet consectetur adipisicing.
+                {sandwich.description}
               </p>
               {user && (
                 <div className="category__sandwiches__sandwich__info__icons">

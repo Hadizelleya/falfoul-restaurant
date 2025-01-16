@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const { handleSubmit, user } = useContext(MainContext);
+  const { handleSubmit, user, error } = useContext(MainContext);
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -34,6 +34,7 @@ export default function SignIn() {
         <div className="sign-in">
           <form onSubmit={handleFormSubmit} className="sign-in__form">
             <h1 className="sign-in__form__title">Sign In</h1>
+            {error && <p className="sign-in__form__error">{error}</p>}
             <div className="sign-in__form__box">
               <label className="sign-in__form__box__label" htmlFor="username">
                 Username:
@@ -66,9 +67,7 @@ export default function SignIn() {
           </form>
         </div>
       ) : (
-        <div style={{ textAlign: "center", marginTop: "30px" }}>
-          <h1>You are already logged in</h1>
-        </div>
+        "hello"
       )}
     </>
   );

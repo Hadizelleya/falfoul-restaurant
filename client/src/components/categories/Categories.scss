@@ -8,8 +8,8 @@
   border-radius: $border-radius-primary;
   padding: 40px;
 
-  @media (max-width: 700px) {
-    padding: 20px;
+  @media (max-width: 600px) {
+    padding: 20px 10px;
   }
 
   &__title {
@@ -36,10 +36,12 @@
       justify-content: center;
       border-bottom: 2px solid rgba($color-white, $alpha: 0.3);
       padding: 40px 20px;
-
       gap: 20px;
       @media (max-width: 700px) {
         flex-direction: column;
+      }
+      @media (max-width: 500px) {
+        padding: 20px 10px;
       }
 
       &__image {
@@ -121,11 +123,12 @@
   }
 }
 .edit {
-  color: white;
+  color: $color-white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   gap: 10px;
 
   &__title {
@@ -137,12 +140,17 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+
     gap: 10px;
 
     &__label {
       display: flex;
       gap: 10px;
       align-items: center;
+
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
     }
 
     &__input {
@@ -153,6 +161,9 @@
       outline: none;
       border: 2px solid $color-white;
       border-radius: $border-radius-primary;
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
     }
 
     &__buttons {

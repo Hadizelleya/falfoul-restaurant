@@ -5,6 +5,7 @@ const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,15 +41,17 @@ export const MainProvider = ({ children }) => {
       const token = response.data.jwt;
       localStorage.setItem("token", token);
       const userData = response.data.user;
+      setError(null);
       setUser(userData);
       console.log(userData);
 
       // Handle successful login (e.g., store token, redirect)
     } catch (error) {
-      console.error(
-        "Error signing in:",
-        error.response ? error.response.data : error.message
-      );
+      if (error.response && error.response.data && error.response.data.error) {
+        setError(`${error.response.data.error.message} please try again`);
+      } else {
+        setError("An unexpected error occurred.");
+      }
     }
   };
 
@@ -58,7 +61,7 @@ export const MainProvider = ({ children }) => {
   };
 
   return (
-    <MainContext.Provider value={{ handleSubmit, handleLogout, user }}>
+    <MainContext.Provider value={{ handleSubmit, handleLogout, user, error }}>
       {children}
     </MainContext.Provider>
   );

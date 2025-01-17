@@ -9,13 +9,13 @@ export default function Categories({ title, sandwiches }) {
   const [sandwichList, setSandwichList] = useState(sandwiches);
   const [editingSandwich, setEditingSandwich] = useState(null);
   const [displayForm, setDisplayForm] = useState(false);
-  const [imageId, setImageId] = useState();
+  const [imageId, setImageId] = useState("");
   const [editInputs, setEditInputs] = useState({
     name: "",
     price: "",
     description: "",
   });
-  const url = "http://localhost:1337";
+  const url = import.meta.env.VITE_APP_MAIN_URL;
   const deleteItem = async (documentId) => {
     try {
       await axios.delete(`${url}/api/sandwiches/${documentId}`, {
@@ -30,6 +30,11 @@ export default function Categories({ title, sandwiches }) {
     } catch (error) {
       console.error("Error deleting sandwich:", error);
     }
+  };
+
+  const closeEditingForm = () => {
+    setDisplayForm(!displayForm);
+    setImageId("");
   };
   const handleEditClick = (sandwich) => {
     setEditingSandwich(sandwich.documentId);
@@ -77,7 +82,7 @@ export default function Categories({ title, sandwiches }) {
       const response = await axios.put(
         `${url}/api/sandwiches/${editingSandwich}?populate=*`,
         {
-          data: updatedSandwich,
+          data: imageId !== "" ? updatedSandwich : editInputs,
         },
         {
           headers: {
@@ -144,7 +149,7 @@ export default function Categories({ title, sandwiches }) {
                     <FaRegWindowClose
                       className="category__sandwiches__sandwich__info__icons__icon"
                       style={{ color: "white", cursor: "pointer" }}
-                      onClick={() => setDisplayForm(!displayForm)}
+                      onClick={closeEditingForm}
                     />
                   )}
                 </div>
